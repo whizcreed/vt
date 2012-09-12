@@ -1,0 +1,61 @@
+mysql> create database vtapp;
+Query OK, 1 row affected (0.41 sec)
+
+mysql> create table testing_table name varchar(255), contact_name varchar(255), roll_no varchar(255);
+ERROR 1046 (3D000): No database selected
+mysql> use vtapp;
+Database changed
+mysql> create table testing_table (name varchar(255), contact_name varchar(255), roll_no varchar(255));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_vtapp |
++-----------------+
+| testing_table   |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> desc testing_table;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| name         | varchar(255) | YES  |     | NULL    |       |
+| contact_name | varchar(255) | YES  |     | NULL    |       |
+| roll_no      | varchar(255) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table testing_table drop column name;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table testing_table change contact_name username varchar(255);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table testing_table add first_name varchar(255);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table testing_table add last_name varchar(255);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table testing_table modify roll_no int;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc testing_table;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| username   | varchar(255) | YES  |     | NULL    |       |
+| roll_no    | int(11)      | YES  |     | NULL    |       |
+| first_name | varchar(255) | YES  |     | NULL    |       |
+| last_name  | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
