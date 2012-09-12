@@ -1,0 +1,5 @@
+select * from tastes join sandwiches on(sandwiches.filling = tastes.filling) where name = 'Jones';
+
+select * from sandwiches where filling in(select filling from tastes where name='Jones');
+
+select location, count(*) from sandwiches join tastes on(sandwiches.filling = tastes.filling) group by location;
