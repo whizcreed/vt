@@ -1,0 +1,12 @@
+select * from articles where user_id = 3;
+
+select * from articles join comments on(comments.article_id = articles.id) where articles.user_id = 3;
+
+select * from articles HAVING (select count(*) from comments where comments.article_id = articles.id) = 0 ;
+
+
+select articles.id, content, count(*) as comments_count from articles join comments on(comments.article_id = articles.id) group by (comments.article_id) order by comments_count desc limit 1;
+
+
+select *, count(*) as cnt from comments join articles on(articles.id = article_id)group by article_id, comments.user_id having cnt <=1;
+
